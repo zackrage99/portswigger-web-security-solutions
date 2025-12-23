@@ -1,4 +1,4 @@
-Lab: Basic SQLi in WHERE clause
+**Lab**: Basic SQLi in WHERE clause
 
 **Vulnerability:** SQL injection in category parameter  
 **Vulnerable Parameter:** category (GET request)  
