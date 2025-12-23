@@ -1,9 +1,13 @@
 **Lab:** SQL injection to find Oracle database version
 
 **Vulnerability:** SQL injection revealing database version
+
 **Vulnerable Parameter:** category (GET request)
-**Impact:** Information disclosure (database version exposure)
+
+**Impact:** Information disclosure (database version exposure
+
 **Technique:** UNION attack with database-specific queries
+
 **URL:** https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-oracle
 
 ## Steps:
