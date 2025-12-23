@@ -10,8 +10,11 @@
 1. Search for endpoints that uses sql query
 2. Found `category` parameter in `/filter?category=Corporate+gifts`
 3. Tested with `'` → 500 error (confirmed injectable)
-4. Added `' OR 1=1--` → All products revealed
-5. Lab solved
+4. Open burpsuite send the request to repeater
+5. Added `' OR 1=1--`
+6. highlight the payload and `ctrl+r` to url encode it
+7. send the request
+8. Lab solved
 
 ## Payload:
 /filter?category=Corporate+gifts'+OR+1=1--
