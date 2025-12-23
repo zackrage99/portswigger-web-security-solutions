@@ -1,6 +1,6 @@
 **Lab**: SQL injection vulnerability allowing login bypass
 
-**Vulnerability:** SQL injection in Login 
+**Vulnerability:** SQL injection in Login \r
 **Vulnerable Parameter:** Login (GET request)  
 **Impact:** Allowing to login to any account including administrator  
 **Technique:** Basic comment out the rest of the query  
