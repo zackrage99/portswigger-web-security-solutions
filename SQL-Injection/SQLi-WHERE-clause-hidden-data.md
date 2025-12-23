@@ -4,7 +4,7 @@
 **Vulnerable Parameter:** `category` (GET request)
 **Impact:** Information disclosure (view hidden products)  
 **Technique:** Basic WHERE clause injection
-**URL: https://portswigger.net/web-security/sql-injection/lab-retrieve-hidden-data
+**URL**: https://portswigger.net/web-security/sql-injection/lab-retrieve-hidden-data
 
 ## Steps:
 1. Search for endpoints that uses sql query
