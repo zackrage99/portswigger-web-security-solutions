@@ -18,14 +18,10 @@
 ## Payload:
 
 ' UNION SELECT NULL,banner FROM v$version--
-text
 
 
 ## Notes:
 - Oracle requires `FROM dual` in SELECT statements (unlike MySQL/PostgreSQL)
 - Must identify which column accepts string data for version output
-- Different databases have different version queries:
-  - Oracle: `banner FROM v$version`
-  - MySQL: `@@version`
-  - PostgreSQL: `version()`
+- Different databases have different version queries
 - Used PortSwigger's SQL injection cheat sheet for reference
