@@ -1,9 +1,9 @@
-# Lab: Basic SQLi in WHERE clause
+Lab: Basic SQLi in WHERE clause
 
-**Vulnerability:** SQL injection in `category` parameter  
-**Vulnerable Parameter:** `category` (GET request)
+**Vulnerability:** SQL injection in category parameter  
+**Vulnerable Parameter:** category (GET request)  
 **Impact:** Information disclosure (view hidden products)  
-**Technique:** Basic WHERE clause injection
+**Technique:** Basic WHERE clause injection  
 **URL:** https://portswigger.net/web-security/sql-injection/lab-retrieve-hidden-data
 
 ## Steps:
