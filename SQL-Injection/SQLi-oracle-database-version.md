@@ -1,4 +1,5 @@
 **Lab:** SQL injection to find Oracle database version
+
 **Vulnerability:** SQL injection revealing database version
 **Vulnerable Parameter:** category (GET request)
 **Impact:** Information disclosure (database version exposure)
