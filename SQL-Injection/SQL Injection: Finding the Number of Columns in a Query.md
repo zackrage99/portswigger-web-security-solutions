@@ -14,7 +14,7 @@
 4. Comment out with `--` → worked
 5. Find column count: `' ORDER BY 2--` works, `' ORDER BY 3--` works, ORDER BY 4 fails (3 columns)
 6. This should solve the lab but we will test in another method
-7. ' union select null, null, null--
+7. ' UNION SELECT NULL, NULL, NULL--
 8. Lab solved
 
 ## Notes:
