@@ -15,7 +15,7 @@
 5. GET /image?filename=53.jpg 
 6. Test with ../../../etc/passwd → Error (No such file)
 7. Test without Traversal Sequence → (Absolute Path)
-8.GET /image?filename=/etc/passwd
+8. GET /image?filename=/etc/passwd
 9. Observe the response containing the /etc/passwd contents
 10. Lab solved
 
