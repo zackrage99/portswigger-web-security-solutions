@@ -6,7 +6,9 @@
 
 **URL:** https://portswigger.net/web-security/access-control/lab-url-based-access-control-can-be-circumvented
 
-## Notes:  X-Original-URL HTTP header is used by reverse proxies  to preserve the original requested URL before internal rewriting or redirection. 
+## Notes: 
+- X-Original-URL HTTP header:
+is used by reverse proxies  to preserve the original requested URL before internal rewriting or redirection. 
 It helps backend applications determine the original request when URL rewriting is in use
 If a website is misconfigured an attacker can override the original request and access provate directories
 
