@@ -91,6 +91,12 @@ the server's validation logic looks like this:
 
 
 -To prevent this, browsers and developers use a Referrer-Policy to control how much data is shared:
+| Policy | What it sends |
+| :--- | :--- |
+| `no-referrer` | Nothing. The header is omitted. |
+| `origin` | Just the domain (e.g., `https://blog.com/`). |
+| `strict-origin-when-cross-origin` | Full URL for same-site, only domain for cross-site (Modern Default). |
+| `unsafe-url` | The full URL, including query parameters (Dangerous). |
 Policy,              What it sends
 no-referrer          Nothing. The header is omitted.
 origin               Just the domain (e.g., https://blog.com/).
