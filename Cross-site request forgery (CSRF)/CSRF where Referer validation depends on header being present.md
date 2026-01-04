@@ -97,11 +97,9 @@ the server's validation logic looks like this:
 | `origin` | Just the domain (e.g., `https://blog.com/`). |
 | `strict-origin-when-cross-origin` | Full URL for same-site, only domain for cross-site (Modern Default). |
 | `unsafe-url` | The full URL, including query parameters (Dangerous). |
-Policy,              What it sends
-no-referrer          Nothing. The header is omitted.
-origin               Just the domain (e.g., https://blog.com/).
-strict-origin-when-cross-origin     "Full URL for same-site, only domain for cross-site (Modern Default)."
-unsafe-url           The full URL, including query parameters (Dangerous).
+
+
+
 
 ## How to Fix (For Developers)
 1. **CSRF Tokens**: Validate tokens on both request methods or allow only post requests
