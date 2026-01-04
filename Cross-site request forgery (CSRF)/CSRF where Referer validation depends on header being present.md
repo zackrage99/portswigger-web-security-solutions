@@ -4,7 +4,7 @@
       1. A legitimate request initiated by the user through the application's UI
       2. A forged request initiated by an attacker from another site
 
-- The Referer header (properly spelled Referrer) is an HTTP request header that tells a server exactly where a request came from
+- The Referer header  is an HTTP request header that tells a server exactly where a request came from
 
 
 - Most developers implement this check to block requests coming from attacker-site.com. However, 
