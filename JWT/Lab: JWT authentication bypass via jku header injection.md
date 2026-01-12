@@ -1,6 +1,7 @@
 **Vulnerability:** The server uses a jku header parameter to verify tokens but fails to check the url if it's from trusted source
 
 ***URL:*** https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jku-header-injection 
+
 **Vulnerable Parameter:** jku header parameter  
 **Impact:** Authentication bypass → Admin access   
 
