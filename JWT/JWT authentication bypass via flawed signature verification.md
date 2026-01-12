@@ -7,7 +7,8 @@
 2. Capture GET `/my-account` in Burp → Send to Repeater
 3. Change to GET `/admin` → 401 error
 4. In JWT Editor tab, modify payload: `sub: "administrator"` → Send → Still 401 (signature invalid)
-5. **Attack**: Click "Attack" → "none algorithm" → Choose first option
+**Attack:**
+5. Click "Attack" → "none algorithm" → Choose first option
 6. Notice token changes to: `header.payload.` (no signature, ends with dot)
 7. Send → 200 OK (admin access)
 8. Find delete link for `carlos` in response
