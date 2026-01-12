@@ -42,4 +42,6 @@
 
 **NOTES:** 
 - The server here count on the `jku` header to verify public keys but it fails to check if the url came from trusted source that's why we injected our exploit server
+- We added {"keys":} before our key in Body section because it is the jwk structure it composes from a set of "keys" and an array of the keys
+
 
