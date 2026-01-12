@@ -1,4 +1,5 @@
 **Vulnerability:** The server fails to check whether the provided key came from a trusted source
+
 **Vulnerable Parameter:** jwk key  
 **Impact:** Authentication bypass → Admin access  
 
@@ -9,7 +10,10 @@
 4. In JWT Editor tab, modify payload: `sub: "administrator"` → Send → Still 401 (signature invalid)
 5. Notice the `alg:RS256` used is asymmetric meaning it has 2 keys  private and public
 6. From the lab we know this lab trust any key embeded
-7. **Attack**: Click "jwt editor extension" → new RSA key and generate
+
+**Attack:**
+
+7. Click "jwt editor extension" → new RSA key and generate
 8. Back to repeater attack then embedded jwk and ok
 9. Send → 200 OK (admin access)
 10. Find delete link for `carlos` in response
