@@ -14,6 +14,7 @@
 6. From the lab we know The server supports the jku parameter in the JWT header. However, it fails to check whether the provided URL belongs to a trusted domain before fetching the key
 
 **Attack:**
+
 7. First go to JWT Editor tab and click `New RSA key` and generate 
 8. Now right click on your newly generated key and copy public key as jwk
 9. Now go to your exploit server provided by port swigger lab and in the Body section paste your key
