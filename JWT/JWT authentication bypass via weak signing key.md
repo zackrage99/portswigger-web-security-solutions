@@ -1,6 +1,7 @@
 **Vulnerability:** The server uses an extremely weak secret key to both sign and verify tokens
 
 ***URL:*** https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-weak-signing-key 
+
 **Vulnerable Parameter:** jwk token  
 **Impact:** Authentication bypass → Admin access   
 
