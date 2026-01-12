@@ -1,5 +1,6 @@
 
 **Vulnerability:** Server doesn't verify the signature of any JWTs that it receives
+
 **Vulnerable Parameter:** Authentication bypass
 
 **Impact:** Access admin account
