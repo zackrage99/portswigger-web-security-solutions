@@ -1,4 +1,5 @@
 **Vulnerability:** The server signs an empty key
+
 ***URL:*** https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-kid-header-path-traversal
 
 **Vulnerable Parameter:** kid parameter 
