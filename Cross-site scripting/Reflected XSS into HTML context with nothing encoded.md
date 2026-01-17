@@ -1,6 +1,6 @@
 **Quick Brief:**
--XSS is a web security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users
--Three Main Types:
+- XSS is a web security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users
+- Three Main Types:
 
     1.Reflected XSS
 
