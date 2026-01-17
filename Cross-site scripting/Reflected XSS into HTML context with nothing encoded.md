@@ -26,7 +26,7 @@
 2. Notice in the middel of the page a search input let's try to inject a js script in it
 3. In the search bar type `<script>alert('1')</script>`
 4. Notice a Pop up window with number 1 showed
-8. Lab solved
+5. Lab solved
 
 ## Notes:
 - The payload we used is just a simple java script code to alert us with number 1
