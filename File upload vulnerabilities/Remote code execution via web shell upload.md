@@ -50,4 +50,4 @@ Copy the secret string from the response and submit it to solve the lab.
 * **Always Check for RCE:** Any file upload field should be tested for the ability to upload and execute scripts (PHP, ASPX, JSP, etc.) based on the back-end technology.
 
 ---
-*Walkthrough created for educational purposes.*
+
