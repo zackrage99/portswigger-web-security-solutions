@@ -22,7 +22,7 @@ Log in to the lab and navigate to the **My Account** page. Locate the avatar upl
 1. Upload a legitimate image file (e.g., `example.jpg`).
 2. Capture the `POST /my-account/avatar` request using **Burp Suite**.
 3. Send the request to **Burp Repeater**.
-4. ![Uploaded Image](./images/uploaded_image.png)
+4. ![Uploaded Image](./portswigger-web-security-solutions/images/uploaded_image.png)
 
 ### 3. Craft the Malicious Payload
 In Burp Repeater, modify the captured request to inject the PHP shell:
