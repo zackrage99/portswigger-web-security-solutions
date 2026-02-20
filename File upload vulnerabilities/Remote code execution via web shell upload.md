@@ -38,7 +38,7 @@ In Burp Repeater, modify the captured request to inject the PHP shell:
 ### 4. Execute and Retrieve the Secret
 1. Send the modified `POST` request. You should receive a `200 OK` or a `302 Found` response, indicating the file was accepted.
 2. Follow the redirect or go back to your account page.
-3. Locate the `GET` request for the avatar (usually `/files/avatars/exploit.php`).
+3. Locate the `GET` request for the avatar (usually `/files/avatars/example.php`).
 4. View the response of this `GET` request. The server will execute the PHP code and return the contents of the secret file in the response body.
 5. ![Secret Reaveal](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/secret_reveale.png)
 ### 5. Lab Completion
