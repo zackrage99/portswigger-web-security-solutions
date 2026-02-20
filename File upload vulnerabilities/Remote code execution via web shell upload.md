@@ -19,9 +19,10 @@ The application's "Edit Profile" functionality allows users to upload an avatar 
 Log in to the lab and navigate to the **My Account** page. Locate the avatar upload field. This is our primary attack vector.
 
 ### 2. Intercept the Upload Request
-1. Upload a legitimate image file (e.g., `53.jpg`).
+1. Upload a legitimate image file (e.g., `example.jpg`).
 2. Capture the `POST /my-account/avatar` request using **Burp Suite**.
 3. Send the request to **Burp Repeater**.
+4. ![Intercepting the Request](./portswigger-web-security-solutions/images/uploaded_image.png)
 
 ### 3. Craft the Malicious Payload
 In Burp Repeater, modify the captured request to inject the PHP shell:
