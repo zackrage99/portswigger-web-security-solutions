@@ -20,7 +20,7 @@ This application attempts to prevent malicious uploads by verifying the `Content
 2. Observe the error message: 
    `Sorry, file type application/octet-stream is not allowed. Only image/jpeg and image/png are allowed.`
 3. This confirms the server is checking the **MIME type** provided in the request.
-4. https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab2/uploading%20a%20shell.png
+4. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-securitysolutions/blob/main/images/File%20upload%20vulnerabilities/lab2/uploading%20a%20shell.png)
 
 ### 2. Capture a Valid Upload
 1. Upload a legitimate image file (e.g., `test.jpg`).
@@ -34,4 +34,4 @@ This application attempts to prevent malicious uploads by verifying the `Content
 4. Ensure your PHP payload is in the body:
    ```php
    <?php echo file_get_contents('/home/carlos/secret'); ?>
-5. https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab2/editing%20content%20type.png
+5. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab2/editing%20content%20type.png)
