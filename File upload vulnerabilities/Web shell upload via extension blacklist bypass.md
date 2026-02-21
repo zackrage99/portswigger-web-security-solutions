@@ -30,6 +30,7 @@ Log in to the lab using `wiener:peter` and navigate to the **My Account** page. 
 2. In the request body, locate the `filename` parameter.
 3. Change `filename="exploit.php"` to an alternative PHP extension, such as `filename="exploit.php3"`.
 4. Send the request. Notice the server returns a `200 OK`, indicating the `.php3` extension bypassed the blacklist.
+5. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab4/php_extension.png)
 
 
 
