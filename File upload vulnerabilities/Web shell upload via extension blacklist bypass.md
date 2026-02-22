@@ -35,9 +35,9 @@ We need to tell Apache to treat a specific, non-blacklisted extension as a PHP e
 3.  Change the `Content-Type` to `text/plain`.
 4.  Replace the file content with the following configuration:
     ```apache
-    AddType application/x-httpd-php .php3
+    AddHandler application/x-httpd-php .* 
     ```
-    *(Note: This maps the `.php3` extension to the PHP handler.)*
+    *(Note: This maps the `.php` extension to the PHP handler.)*
 5.  Send the request. The server should accept the `.htaccess` file.
 
 ### 4. Upload and Execute the Shell
