@@ -62,5 +62,3 @@ To successfully upload a polyglot, you must satisfy two different parsers simult
 * **Rename on Store:** Never use the user-supplied filename or extension on the server's filesystem.
 
 ---
-
-Would you like me to show you how to perform this same bypass using a hex editor to manually insert the magic bytes?
