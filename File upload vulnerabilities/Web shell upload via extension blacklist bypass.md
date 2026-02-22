@@ -21,6 +21,7 @@ The application attempts to prevent malicious file uploads by using a **blacklis
 2.  Attempt to upload a standard PHP shell (e.g., `exploit.php`).
 3.  Notice the error message: `php files are not allowed`. This confirms a blacklist is in place.
 4.  Try an alternative extension like `exploit.php3`. The upload succeeds (**200 OK**), but when you visit the file, the server returns the **raw text** instead of executing it.
+5.  ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab4/bypassing_filter.png)
 
 ### 2. Identify the Server Environment
 Observe the headers in the response from the server. You will see:
@@ -39,6 +40,7 @@ We need to tell Apache to treat a specific, non-blacklisted extension as a PHP e
     ```
     *(Note: This maps the `.php` extension to the PHP handler.)*
 5.  Send the request. The server should accept the `.htaccess` file.
+6.  ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/File%20upload%20vulnerabilities/lab4/uplading_htaccess.png)
 
 ### 4. Upload and Execute the Shell
 1.  Now, upload your shell again but rename it to `exploit.php3`.
