@@ -34,6 +34,7 @@ We need to determine if we can break out of the original command using a separat
    productId=3&storeId=2;ls
 
     Observe Response: If the response contains file names (like .sh files) alongside the stock level, the injection is successful.
+![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/OS%20command%20injection/lab1/injecting%20payload.png)
 
 4. Solve the Lab
 
