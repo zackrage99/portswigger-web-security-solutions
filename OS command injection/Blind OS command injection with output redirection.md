@@ -39,7 +39,8 @@ To solve the lab, we need to run whoami and save the result to a file in the ima
     (Note: Ensure spaces are URL-encoded as + and the > character is handled correctly.)
 
     Send the request. You should receive a 200 OK response. Even though you don't see "peter" or "root" yet, the file output.txt has now been created on the server.
-    ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/OS%20command%20injection/lab3/injecting%20payload.png)
+
+![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/OS%20command%20injection/lab3/injecting%20payload.png)
 
 4. Retrieve the Command Output
 
