@@ -42,6 +42,7 @@ To solve the lab, we need to run whoami and save the result to a file in the ima
 
 ![Uploaded Image](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/OS%20command%20injection/lab3/injecting%20payload.png)
 
+
 4. Retrieve the Command Output
 
 Now, we need to read the file we just created. The website displays product images by calling a script: GET /image?filename=65.jpg. We can exploit this to read our text file.
