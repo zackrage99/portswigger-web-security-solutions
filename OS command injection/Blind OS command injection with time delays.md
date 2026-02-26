@@ -46,6 +46,7 @@ In a blind scenario, `ls` or `whoami` won't show results in the response. We mus
 5. Lab Completion
 
 Once the 10-second delay is confirmed, the lab is marked as solved, as you have proven the ability to execute arbitrary OS commands on the server.
+
 📝 Key Takeaways
 
     Blind Vulnerabilities: Just because you can't see the output doesn't mean the server isn't vulnerable. Always test for "out-of-band" or "time-based" effects.
