@@ -1,7 +1,8 @@
 ### Lab: Basic SSRF against the local server
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost
-🎯 ### Vulnerability Overview
+
+### 🎯  Vulnerability Overview
 
 The application features a "Check Stock" function that fetches data from an internal system using a URL provided in a POST request. Because the server does not validate this URL, an attacker can modify it to make requests to the local loopback interface (127.0.0.1 or localhost), gaining access to administrative interfaces that are normally restricted to external users.
 
@@ -11,7 +12,8 @@ The application features a "Check Stock" function that fetches data from an inte
 
     Impact: Unauthorized access to the admin panel and the ability to delete users.
 
-🛠️ ### Exploitation Steps
+### 🛠️  Exploitation Steps
+
 1. ### Identify the SSRF Entry Point
 
     Navigate to a product page and click the "Check stock" button.
@@ -50,7 +52,9 @@ The application features a "Check Stock" function that fetches data from an inte
 5. ### Lab Completion
 
 The user carlos is successfully deleted. Refresh the page or check the lab status to confirm it is solved.
-📝 ### Key Takeaways
+
+###  📝 Key Takeaways
+
 ### The Trust Illusion
 
 Developers often assume that services running on localhost or internal IPs are safe and do not require authentication. SSRF exploits this misplaced trust by making the vulnerable server act as a proxy for the attacker.
