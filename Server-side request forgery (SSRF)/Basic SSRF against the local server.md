@@ -4,7 +4,7 @@ Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-loc
 
 🎯 Vulnerability Overview
 
-The application features a "Check Stock" function that fetches data from an internal system using a URL provided in a POST request. Because the server does not validate this URL, an attacker can modify it to make requests to the local loopback interface (127.0.0.1 or localhost), gaining access to administrative interfaces that are normally restricted to internal users.
+The application features a "Check Stock" function that fetches data from an internal system using a URL provided in a POST request. Because the server does not validate this URL, an attacker can modify it to make requests to the local loopback interface (127.0.0.1 or localhost), gaining access to administrative interfaces that are normally restricted to external users.
 
     Vulnerability: Basic SSRF (Server-Side Request Forgery)
 
@@ -45,7 +45,7 @@ The application features a "Check Stock" function that fetches data from an inte
 
 4. Execute the Unauthorized Action
 
-    Modify the stockApi parameter one last time to trigger the deletion:
+    Modify the stockApi parameter one last time to trigger the deletion by appending the path discovered in the previous step:
     stockApi=http://localhost/admin/delete?username=carlos
 
     Send the request.
