@@ -1,7 +1,8 @@
 ### Lab: Basic SSRF against the local server
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost
-🎯 ### Vulnerability Overview
+
+### 🎯  Vulnerability Overview
 
 The application features a "Check Stock" function that fetches data from an internal system using a URL provided in a POST request. Because the server does not validate this URL, an attacker can modify it to make requests to the local loopback interface (127.0.0.1 or localhost), gaining access to administrative interfaces that are normally restricted to external users.
 
@@ -11,7 +12,7 @@ The application features a "Check Stock" function that fetches data from an inte
 
     Impact: Unauthorized access to the admin panel and the ability to delete users.
 
-🛠️ ### Exploitation Steps
+###  🛠️ Exploitation Steps
 1. ### Identify the Entry Point
 
 To initiate an SSRF attack, you first need to find web functionality that connects to another server or uses a URL as an input.
@@ -41,6 +42,8 @@ Now, let's see if the website can be forced to talk to its own local server:
 
     Inspect Response: Press the "Render" tab in Burp Repeater. You will notice an "Admin panel" is now visible. Back in the Raw response, search for "admin" to find the link: /admin.
 
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab1/injecting%20payload.png)
+
 4. ### Access the Admin Panel
 
     Open the Panel: Change the payload to stockApi=http://localhost/admin.
@@ -56,7 +59,7 @@ Now, let's see if the website can be forced to talk to its own local server:
 
     Confirm Deletion: Send the request. The user carlos is deleted, and the lab is marked as solved.
 
-📝 ### Key Takeaways
+### 📝  Key Takeaways
 ### Lack of Defenses
 
 This lab demonstrates a server talking to a local interface with absolutely no defenses or whitelisting in place. It trusts any URL provided in the stockApi parameter.
