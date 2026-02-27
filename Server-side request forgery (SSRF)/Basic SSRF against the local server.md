@@ -1,8 +1,7 @@
 ### Lab: Basic SSRF against the local server
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost
-
-### 🎯  Vulnerability Overview
+🎯 ### Vulnerability Overview
 
 The application features a "Check Stock" function that fetches data from an internal system using a URL provided in a POST request. Because the server does not validate this URL, an attacker can modify it to make requests to the local loopback interface (127.0.0.1 or localhost), gaining access to administrative interfaces that are normally restricted to external users.
 
@@ -12,59 +11,55 @@ The application features a "Check Stock" function that fetches data from an inte
 
     Impact: Unauthorized access to the admin panel and the ability to delete users.
 
-### 🛠️  Exploitation Steps
+🛠️ ### Exploitation Steps
+1. ### Identify the Entry Point
 
-1. ### Identify the SSRF Entry Point
+To initiate an SSRF attack, you first need to find web functionality that connects to another server or uses a URL as an input.
 
-    Navigate to a product page and click the "Check stock" button.
+    Observe the website: After inspecting the pages, the only place making such a connection is the "Check stock" functionality inside the "View details" page of a product.
 
-    Intercept the request in Burp Suite and send the POST /product/stock request to Repeater.
+    Intercept the Request: Open Burp Suite, click "Check stock", and capture the POST request. Send it to Repeater.
 
-    Observe the stockApi parameter:
-    stockApi=http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D1
+2. ### Analyze the Payload
 
-2. ### Test for Localhost Access
+Observe the body of the POST request:
+stockApi=http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D3%26storeId%3D1
 
-    In Repeater, change the stockApi value to target the local loopback:
-    stockApi=http://localhost
+    This parameter is using a URL to talk to an internal stock server.
 
-    Send the request. A 200 OK response indicates the server is vulnerable and successfully queried its own local interface.
+    Try decoding the URL (Ctrl+Shift+U) and sending it. If an error occurs, it indicates the server expects a specific format.
 
-    Search the response for "Admin" to find the link to the administrative panel: /admin.
+    Testing the base URL: Changing the parameter to stockApi=http://stock.weliketoshop.net:8080 returns a 400 Bad Request, showing we can manipulate the path but need a valid endpoint.
 
-3. ### Access the Admin Panel
+3. ### Test for Localhost Access
 
-    Update the stockApi parameter to point to the admin path:
-    stockApi=http://localhost/admin
+Now, let's see if the website can be forced to talk to its own local server:
 
-    Send the request. The response will now render the internal Admin Panel, which is usually hidden from external traffic.
+    Inject Localhost: Modify the parameter to stockApi=http://localhost.
 
-    Locate the deletion link for the user carlos:
-    /admin/delete?username=carlos
+    Verify Vulnerability: You should receive a 200 OK. This confirms the server is vulnerable to SSRF.
 
-4. ### Execute the Unauthorized Action
+    Inspect Response: Press the "Render" tab in Burp Repeater. You will notice an "Admin panel" is now visible. Back in the Raw response, search for "admin" to find the link: /admin.
 
-    Modify the stockApi parameter to perform the deletion:
+4. ### Access the Admin Panel
+
+    Open the Panel: Change the payload to stockApi=http://localhost/admin.
+
+    Analyze Results: You get another 200 OK. This is a good sign—you are now viewing the internal administrative interface.
+
+    Find the Target: Search the response for the user "carlos". You will find a link to delete him: /admin/delete?username=carlos.
+
+5. ### Execute and Solve
+
+    Final Injection: Combine the path to delete the user:
     stockApi=http://localhost/admin/delete?username=carlos
 
-    Send the request. The server will execute this request locally, bypassing any external authentication checks.
+    Confirm Deletion: Send the request. The user carlos is deleted, and the lab is marked as solved.
 
-5. ### Lab Completion
+📝 ### Key Takeaways
+### Lack of Defenses
 
-The user carlos is successfully deleted. Refresh the page or check the lab status to confirm it is solved.
-
-###  📝 Key Takeaways
-
+This lab demonstrates a server talking to a local interface with absolutely no defenses or whitelisting in place. It trusts any URL provided in the stockApi parameter.
 ### The Trust Illusion
 
-Developers often assume that services running on localhost or internal IPs are safe and do not require authentication. SSRF exploits this misplaced trust by making the vulnerable server act as a proxy for the attacker.
-### Bypassing Network Defenses
-
-SSRF allows attackers to bypass firewalls, ACLs, and other network protections that block external access to internal administrative tools. Because the request originates from the server itself, it is treated as "trusted" traffic.
-### Security Best Practices
-
-    Whitelisting: Only allow the application to connect to a predefined list of trusted hostnames and IPs.
-
-    Deny Local Access: Block requests to 127.0.0.1, localhost, and private IP ranges (e.g., 10.0.0.0/8, 192.168.0.0/16) unless strictly necessary.
-
-    Input Validation: Do not allow users to submit full URLs; instead, require a specific ID that the server maps to a hardcoded internal URL.
+We were able to act as an admin simply by using localhost. This happens because developers often assume that any request originating from the local machine is safe, authenticated, and belongs to an administrator, failing to account for request forgery.
