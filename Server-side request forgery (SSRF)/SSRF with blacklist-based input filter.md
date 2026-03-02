@@ -2,7 +2,7 @@
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-ssrf-with-blacklist-filter
 
-🎯 ### Vulnerability Overview
+ ### 🎯 Vulnerability Overview
 
 In this scenario, the application has implemented a security blacklist to prevent SSRF attacks. It blocks common keywords like 127.0.0.1 and admin. To bypass these controls, we must use alternative IP representations and obfuscation techniques like double URL encoding.
 
@@ -12,7 +12,7 @@ In this scenario, the application has implemented a security blacklist to preven
 
     Impact: Unauthorized access to administrative functions by bypassing weak security filters.
 
-🛠️ ### Exploitation Steps
+### 🛠️  Exploitation Steps
 
 1. ### Identify the Entry Point
 
@@ -63,7 +63,7 @@ Applications often block 127.0.0.1 or localhost specifically. We can try alterna
 
     Confirm Deletion: Send the request. The user carlos is deleted, and the lab is marked as solved.
 
-📝 ### Key Takeaways
+### 📝  Key Takeaways
 
 ### The Weakness of Blacklists
 
