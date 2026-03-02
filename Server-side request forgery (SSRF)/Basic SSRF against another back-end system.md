@@ -1,6 +1,7 @@
 # Lab: Basic SSRF against another back-end system
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-backend-system
+
 🎯 ### Vulnerability Overview
 
 In this scenario, the application’s "Check Stock" feature communicates with a back-end system that sits on a different IP address within the internal network. Since the stockApi parameter is not restricted, we can use the main web server as a proxy to scan the internal 192.168.0.X range and discover other internal services.
@@ -12,6 +13,7 @@ In this scenario, the application’s "Check Stock" feature communicates with a 
     Impact: Internal network scanning, discovery of hidden services, and unauthorized administrative actions.
 
 🛠️ ### Exploitation Steps
+
 1. ### Identify the Entry Point
 
     Browse the website: Similar to the previous lab, the entry point is the "Check stock" functionality.
@@ -68,6 +70,7 @@ Since we don't know which IP in the 192.168.0.0/24 range hosts the admin panel, 
     Confirm Deletion: Send the request. The user carlos is deleted on the back-end system.
 
 📝 ### Key Takeaways
+
 ### Internal Network Discovery
 
 This lab shows that SSRF isn't just for attacking the local machine (localhost). It can be used to map out the entire internal network (Internal Port Scanning) that is not accessible from the public internet.
