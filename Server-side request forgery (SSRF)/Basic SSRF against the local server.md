@@ -43,11 +43,6 @@ Now, let's see if the website can be forced to talk to its own local server:
     Inspect Response: Press the "Render" tab in Burp Repeater. You will notice an "Admin panel" is now visible. Back in the Raw response, search for "admin" to find the link: /admin.
 
 
-
-
-
- ![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab1/injecting%20payload.png)
-
 4. ### Access the Admin Panel
 
     Open the Panel: Change the payload to stockApi=http://localhost/admin.
@@ -70,3 +65,5 @@ This lab demonstrates a server talking to a local interface with absolutely no d
 ### The Trust Illusion
 
 We were able to act as an admin simply by using localhost. This happens because developers often assume that any request originating from the local machine is safe, authenticated, and belongs to an administrator, failing to account for request forgery.
+
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab1/injecting%20payload.png)
