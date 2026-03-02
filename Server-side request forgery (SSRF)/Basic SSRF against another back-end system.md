@@ -34,7 +34,9 @@ In this scenario, the application’s "Check Stock" feature communicates with a 
 
     Test for Other Hosts: Changing the last octet manually (e.g., 192.168.0.2) might return a 500 Internal Server Error, indicating that specific IP is not responding or doesn't exist.
 
-3. ### Automate the Internal Network Scan
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab2/url.png)
+
+4. ### Automate the Internal Network Scan
 
 Since we don't know which IP in the 192.168.0.0/24 range hosts the admin panel, we must automate the search:
 
@@ -53,6 +55,9 @@ Since we don't know which IP in the 192.168.0.0/24 range hosts the admin panel, 
 
     Start Attack: Click "Start attack".
 
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab2/sending%20requests.png)
+
+
 4. ### Access the Admin Panel
 
     Filter Results: Most requests will return 400 or 500 errors. Look for a request that returns a 200 OK or a 404 Not Found (which indicates the server exists but the path is slightly different).
@@ -62,7 +67,10 @@ Since we don't know which IP in the 192.168.0.0/24 range hosts the admin panel, 
     Verify in Repeater: Send stockApi=http://192.168.0.201:8080/admin to Repeater. Search the response for "carlos" to find the deletion link:
     /admin/delete?username=carlos
 
-5. ### Execute and Solve
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab2/final%20payload.png)
+
+
+6. ### Execute and Solve
 
     Final Injection: Combine the discovered internal IP with the deletion command:
     stockApi=http://192.168.0.201:8080/admin/delete?username=carlos
