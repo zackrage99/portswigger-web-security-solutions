@@ -41,6 +41,8 @@ Applications often block 127.0.0.1 or localhost specifically. We can try alterna
 
     Locate Admin: Search the response for "admin". You will find the link to the administrative interface: /admin.
 
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab3/admin%20page.png)
+
 4. ### Bypass the Keyword Filter (Double Encoding)
 
     Test Admin Path: Try stockApi=http://127.1/admin.
@@ -54,7 +56,9 @@ Applications often block 127.0.0.1 or localhost specifically. We can try alterna
 
     Access Granted: You receive a 200 OK and can now see the Admin Panel.
 
-5. ### Execute and Solve
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Server-side%20request%20forgery%20(SSRF)/lab3/double%20encode.png)
+
+6. ### Execute and Solve
 
     Find Deletion Link: Search the response for "carlos" to find the deletion URL: /admin/delete?username=carlos.
 
