@@ -12,7 +12,7 @@ In this scenario, the application’s "Check Stock" feature communicates with a 
 
     Impact: Internal network scanning, discovery of hidden services, and unauthorized administrative actions.
 
-🛠️ ### Exploitation Steps
+### 🛠️  Exploitation Steps
 
 1. ### Identify the Entry Point
 
@@ -77,7 +77,7 @@ Since we don't know which IP in the 192.168.0.0/24 range hosts the admin panel, 
 
     Confirm Deletion: Send the request. The user carlos is deleted on the back-end system.
 
-📝 ### Key Takeaways
+### 📝 Key Takeaways
 
 ### Internal Network Discovery
 
