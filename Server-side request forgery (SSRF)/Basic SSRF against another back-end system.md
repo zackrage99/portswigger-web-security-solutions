@@ -2,7 +2,7 @@
 
 Target URL: https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-backend-system
 
-🎯 ### Vulnerability Overview
+ ### 🎯 Vulnerability Overview
 
 In this scenario, the application’s "Check Stock" feature communicates with a back-end system that sits on a different IP address within the internal network. Since the stockApi parameter is not restricted, we can use the main web server as a proxy to scan the internal 192.168.0.X range and discover other internal services.
 
