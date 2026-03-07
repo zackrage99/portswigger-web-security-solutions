@@ -34,6 +34,8 @@ Exploit a business logic flaw to purchase a **Lightweight "l33t" Leather Jacket*
 * In the Repeater tab, modify the **price** value to a lower amount, such as **1**:
 > productId=1&redir=PRODUCT&quantity=3&price=1
 * Click **Send**.
+
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab1/price.png)
 ### 5. Verify the Exploit
 
 * You should receive a **302 Found** response.
