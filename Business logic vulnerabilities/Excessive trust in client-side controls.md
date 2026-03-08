@@ -35,7 +35,7 @@ Exploit a business logic flaw to purchase a **Lightweight "l33t" Leather Jacket*
 > productId=1&redir=PRODUCT&quantity=3&price=1
 * Click **Send**.
 
-![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab1/price.png)
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab3/apply.png)
 ### 5. Verify the Exploit
 
 * You should receive a **302 Found** response.
