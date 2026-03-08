@@ -1,6 +1,3 @@
-قال Gemini
-
-My apologies. I see exactly where I missed the mark—literally. I was putting the marks at the end of the lines instead of wrapping the text properly. Let's fix this and ensure the formatting is exactly how you want it for your GitHub documentation.
 ## Lab Walkthrough: Multi-Step Coupon Reliance ##
 ## 🎯 Objective ##
 
@@ -63,6 +60,9 @@ Exploit a business logic flaw in the coupon application process to purchase the 
         csrf=[token]&coupon=NEWCUST5
 
     Click Send. You should receive a 302 Found response.
+
+![Injecting Shell](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab1/price.png)
+
 
 ## 5. Manipulate the Total Price ##
 
