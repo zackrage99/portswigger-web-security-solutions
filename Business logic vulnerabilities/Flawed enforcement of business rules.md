@@ -1,6 +1,7 @@
 ## Lab Walkthrough: Multi-Step Coupon Reliance ##
 ## 🎯 Objective ##
 
+
 Exploit a business logic flaw in the coupon application process to purchase the Lightweight "l33t" Leather Jacket by repeatedly applying different discount codes to reduce the price.
 ## 🛠️ Tools Used ##
 
