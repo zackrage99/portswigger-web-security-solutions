@@ -138,12 +138,16 @@ Maximum length: 500
 Step: 100
 ```
 
+
+![payload](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab5/send%20email.png)
+
 Start the attack.
 
 After the attack finishes, take the **largest payload request**.
 
 ---
 
+![payload](http://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab5/burp%20result.png)
 ## 7. Check the Email Client
 
 Go back to the **Email Client**.
@@ -224,6 +228,8 @@ When you view your profile, the email will end with:
 ```
 
 ---
+
+![payload](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab5/truncated%20email.png)
 
 ## 11. Access the Admin Panel
 
