@@ -1,138 +1,64 @@
-# Lab Walkthrough: High-Level Logic Vulnerability
+# Lab Walkthrough: Inconsistent Handling of Exceptional Input
 
-## Objective
+After truncation, the stored email will appear as:
 
-Exploit a business logic flaw to purchase the **Lightweight "l33t" Leather Jacket** (priced at $1337.00) using only $100 store credit by manipulating the **quantity parameter** in the cart request.
 
----
+AAAAAAAAAAAAAAAAAAAA...@dontwannacry.com
 
-## Tools Used
 
-- Browser
-- Burp Suite (Community or Professional Edition)
+This tricks the application into thinking the user belongs to the **DontWannaCry organization**.
 
 ---
 
-## Step-by-Step Guide
+## 10. Register the Exploit Account
 
-### 1. Setup and Authentication
-
-Launch the lab and open **Burp Suite**.
-
-Navigate to the **My Account** page and log in using the provided credentials.
-
-Username: `wiener`  
-Password: `peter`
-
----
-
-### 2. Identify the Target Product
-
-Browse the store homepage and locate the **Lightweight "l33t" Leather Jacket**.
-
-Open the product page and observe the following:
-
-- Jacket price: $1337.00
-- Your store credit: $100
-
-Since the jacket costs more than your available credit, we need to exploit a logic flaw to reduce the cart total.
-
----
-
-### 3. Intercept the Add to Cart Request
-
-Turn **Intercept ON** in Burp Suite.
-
-Click **Add to cart** for the leather jacket.
-
-The following request will be intercepted:
-
-
-POST /cart
-
-
-Request body:
-
-
-productId=1&redir=PRODUCT&quantity=1
-
-
-Right-click the request and select **Send to Repeater**.
-
----
-
-### 4. Test Negative Quantity
-
-Modify the quantity value to a negative number:
-
-
-productId=1&redir=PRODUCT&quantity=-2
-
-
-Send the request.
-
-Now go back to the cart in the browser.
-
-You will notice that the cart shows **-2 quantity**, which means the application accepts negative values. This is a strong indication of a logic vulnerability.
-
----
-
-### 5. Reduce the Cart Total
-
-Keep **one leather jacket** in the cart.
-
-Now send another request adding a **different product with a negative quantity**.
+Register a new account using the crafted email.
 
 Example:
 
 
-productId=2&redir=PRODUCT&quantity=-4
+username: test5
+password: test5
+email: [crafted payload]
 
 
-Send the request.
+Confirm the email using the **Email Client**, then log in.
 
-Return to the cart and observe that the **total price decreases** because the negative item subtracts from the cart total.
+When you view your profile, the email will end with:
 
-This effectively reduces the price of the leather jacket.
+
+@dontwannacry.com
+
 
 ---
 
-### 6. Make the Jacket Affordable
+## 11. Access the Admin Panel
 
-Continue adding the second product with **larger negative quantities** until the total cart price drops below **$100**.
-
-Example:
+Now navigate to:
 
 
-productId=2&redir=PRODUCT&quantity=-10
+/admin
 
 
-Adjust the value until the cart total becomes affordable with your store credit.
+You will gain **administrator access**.
 
+Locate the user **carlos** and delete the account.
 
-![payload](https://github.com/zackrage99/portswigger-web-security-solutions/blob/main/images/Business%20logic%20vulnerabilities/lab4/miniplating%20price.png)
-
----
-
-### 7. Complete the Purchase
-
-Once the cart total is below $100:
-
-1. Go to your **Cart**
-2. Click **Place Order**
-
-The order will be processed successfully and the lab will be marked as solved.
+Once the user is deleted, the **lab is solved**.
 
 ---
 
 ## Key Takeaway
 
-This vulnerability exists because the application fails to properly validate the **quantity parameter**.
+This vulnerability exists because the application **handles exceptional input inconsistently**, specifically when processing **very long email addresses**.
 
-To prevent this issue:
+The server **truncates the email field at 255 characters**, which allows attackers to manipulate how the domain is interpreted.
 
-- Quantity values should never be allowed to be negative.
-- Business logic validation must occur on the server side.
-- Cart calculations should not rely on untrusted user input.
+### To prevent this issue
 
-Failing to validate user input in payment workflows can lead to serious financial abuse vulnerabili
+- Enforce strict **input length validation**
+- Validate **email domains before storage**
+- Avoid truncating **security-sensitive fields**
+- Perform **server-side validation** on all critical inputs
+
+Improper handling of exceptional input can lead to **privilege escalation and unauthorized administrative access**.
